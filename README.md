@@ -1,5 +1,7 @@
 # 📦 SKU Demand Forecasting & Safety Stock Optimizer
 
+> **🚀 Live Demo:** [View the Streamlit Application](https://bhardwajg572--sku-demand-forecasting-safety-stock-op-app-lods5z.streamlit.app/)
+
 ## 🚩 The Business Problem: The "Blind Inventory" Crisis
 In large-scale retail and logistics, inventory management is a high-stakes balancing act. Most businesses struggle with two costly extremes:
 1.  **Stockouts:** Failing to meet customer demand, leading to immediate revenue loss and long-term brand damage.
@@ -49,6 +51,9 @@ $$WAPE = \frac{\sum |Actual - Forecast|}{\sum Actual}$$
 
 ![alt text](<Screenshot 2026-03-31 213857-1.png>)
 
+**🔗 Try the live app:** [Streamlit Live Demo](https://bhardwajg572--sku-demand-forecasting-safety-stock-op-app-lods5z.streamlit.app/)
+
+---
 
 ## 🚀 Deployment Strategy
 The engine is containerized and exported as a `.json` model, ready to be served via **FastAPI**. The accompanying **Streamlit MVP** translates raw numeric forecasts into a "Mitigated" or "High" stockout risk status, allowing non-technical managers to make instant ordering decisions.
