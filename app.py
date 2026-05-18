@@ -42,7 +42,6 @@ rolling_7 = st.sidebar.number_input("7-Day Moving Average", min_value=0.0, value
 
 if st.sidebar.button("Run Global Forecast", type="primary"):
     
-    # Format the input exactly how the XGBoost model expects it
     input_data = pd.DataFrame({
         'store': [selected_store],
         'item': [selected_item],
@@ -54,16 +53,15 @@ if st.sidebar.button("Run Global Forecast", type="primary"):
         'rolling_7_mean': [rolling_7]
     })
     
-    # Apply the exact same Categorical Fix used during training
     
     input_data['store'] = input_data['store'].astype('category')
     input_data['item'] = input_data['item'].astype('category')
 
-    # Make the Prediction
+    # Prediction
     prediction = model.predict(input_data)[0]
     predicted_sales = max(0, int(round(prediction))) 
     
-    # Calculate Safety Stock Buffer using your optimized 10.44% WAPE margin
+    # Calculate Safety Stock Buffer using our optimized 10.44% WAPE margin
     wape_margin = 0.1044
     safety_stock = int(round(predicted_sales * (1 + wape_margin)))
 
